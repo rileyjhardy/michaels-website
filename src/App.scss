@@ -4,7 +4,7 @@ html {
   padding: 0;
   margin: 0;
   background-color: black;
-  scrollbar-width: none;
+  
 }
 
 body {
@@ -12,9 +12,7 @@ body {
   font-family: "minion-pro", Times, serif;
 }
 
-body::-moz-scrollbar-track {
-  opacity: .5;
-}
+
 
 h2 {
   color: white;
@@ -99,7 +97,7 @@ h3 {
 
 .hamburger {
   position: absolute;
-  right: 18px;
+  right: 30px;
   top: 5px;
   color: white;
   z-index: 2;
@@ -166,7 +164,7 @@ h3 {
 }
 
 .quote-content {
-  font-size: 30px;
+  font-size: 20px;
   width: 800px;
   margin: 50px;
 }
@@ -253,7 +251,7 @@ h3 {
   position: absolute;
   z-index: 2;
   color: white;
-  opacity: .45;
+  
   font-size: 25px;
   font-weight: bolder;
   padding-bottom: 40px;
@@ -335,6 +333,7 @@ h3 {
   color: white;
   font-size: 30px;
   width: 250px;
+  margin: auto;
 }
 
 .icons-nav {
@@ -380,7 +379,7 @@ h3 {
   font-size: 20px;
   color: white;
   border-color: white;
-  margin: 100px auto !important;
+  margin: 10px auto 40px auto !important;
 }
 
 .contact-link:hover {
@@ -390,9 +389,7 @@ h3 {
 }
 
 .contact-container {
-  
-  display: grid;
-  grid-template-columns: auto auto auto;
+
   align-items: center;
   height: 300px;
   width: 1000px;
@@ -444,7 +441,7 @@ h3 {
   
   margin: auto;
   bottom: 2px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   color: white;
   stroke: white;
   z-index: 2;
