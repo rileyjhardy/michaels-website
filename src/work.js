@@ -15,9 +15,7 @@ class Work extends React.Component {
         this.mothermoon = React.createRef();
         this.jacque = React.createRef();
         this.vinh = React.createRef();
-        
-
-    }
+        }
 
     componentDidUpdate(){
     
@@ -26,17 +24,13 @@ class Work extends React.Component {
         this.paperweight.current.showPreview();
         this.mothermoon.current.showPreview();
         this.jacque.current.showPreview();
-        this.vinh.current.showPreview();
-        
+        this.vinh.current.showPreview();        
     }
     
     render(){
 
         var x = ((window.screen.width < 1200)? "384px" : "640px");
         var y = ((window.screen.width < 1200)? "216px": "360px");
-
-
-
 
         return(
             <div className="work-container" id="workid">
