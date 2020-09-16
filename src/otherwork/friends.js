@@ -3,14 +3,12 @@ import ReactPlayer from 'react-player';
 import {Fade} from '@material-ui/core';
 
 import CloseIcon from '@material-ui/icons/Close';
-import {clearAllBodyScrollLocks } from 'body-scroll-lock';
+import {clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const Friends = (props) => {
 
-        var rendered = props.render;
-
         return (
-            <Fade in = {rendered} timeout = {500} unmountOnExit>
+            <Fade in = {props.render} timeout = {500} unmountOnExit>
             <div className = "work-player" id = "friends">
                 <ReactPlayer url = "https://vimeo.com/339679804" className = "work-player-vid" width = "100%" height = "100%" playing controls />
                 
@@ -22,7 +20,6 @@ const Friends = (props) => {
                 <div className = "close-menu-black" onClick={props.close}>
                 <CloseIcon />
                 </div>
-
             </div>
             </Fade>
         )

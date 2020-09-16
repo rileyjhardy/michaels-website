@@ -92,57 +92,46 @@ class Main extends React.Component {
     playFriends(){
         this.setState({
             renderFriend: true,
-        })
-        
-        
+        })       
     }
 
     playMinga(){
         this.setState({
             renderMinga: true,
-        })
-        
+        })        
     }
 
     playPaperweight(){
         this.setState({
             renderPaperweight: true,
-        })
-       
+        })       
     }
 
     playMothermoon(){
         this.setState({
             renderMothermoon: true,
-        })
-        
+        })        
     }
     
     playJacque(){
         this.setState({
             renderJacque: true,
-        })
-        
+        })        
     }
 
     playVinh(){
         this.setState({
             renderVinh: true,
-        })
-        
-        
+        })       
     }
 
     render(){
 
     return (
-        <Router>
-                
-        <div className='main'>
-        
+        <Router>                
+            <div className='main'>            
                 <Reel scrolling = {this.toggleScroll} constant = {this.state.landingReelPlaying} opennav = {this.toggleNav} navstate = {this.state.displayNav} toggleplay={this.toggleFullReel}/>
-                <FullReel playstate={this.state.playFullReel} toggleplay={this.toggleFullReel} />
-            
+                <FullReel playstate={this.state.playFullReel} toggleplay={this.toggleFullReel} />                
                 <Quote />
                 <div data-aos = "zoom-in" className = "line-break"></div>
                 <Work  friends = {this.playFriends} minga = {this.playMinga} paperweight = {this.playPaperweight} mothermoon = {this.playMothermoon} jacque = {this.playJacque} vinh = {this.playVinh} />
@@ -165,9 +154,8 @@ class Main extends React.Component {
                 </div>
                 </Link>
                 <Contact displaystate = {this.state.displayContact} toggle = {this.toggleContact} />           
-        </div>
-                
-            </Router>
+            </div>                
+        </Router>
         )
     };
 };

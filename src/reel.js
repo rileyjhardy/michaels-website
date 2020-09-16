@@ -43,6 +43,8 @@ class Reel extends React.Component {
       enableBodyScroll(this.targetElement);
     }
 
+    console.log(this.targetElement);
+
     this.setState({
       displayNav: option,
     })
