@@ -1,5 +1,5 @@
 import React from 'react';
-import michael from './images/michael.jpeg';
+import michael from './media/michael.jpeg';
 
 const About = () => {
     return(

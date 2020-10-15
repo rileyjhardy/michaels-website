@@ -1,113 +1,38 @@
 import React from 'react';
-import ReactPlayer from 'react-player/vimeo';
 import Nav from './nav';
-
+import reelvideo from './media/reelvideo.mp4';
 import {Cross as Hamburger} from 'hamburger-react';
-
 import {HashLink as Link} from 'react-router-hash-link';
-
-import {disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks} from 'body-scroll-lock';
-
 import './App.scss';
+import { render } from 'react-dom';
 
-class Reel extends React.Component {
-  constructor(props){
-    super(props);
+const Reel = ({ renderstate , setrenderstate }) => {  
 
-    this.state = {
-      displayNav: false,
-      titleAnimation: "",
-      hover: ''
-    }
+    var toggler = (renderstate.displayNav)? false : true;
 
-    this.handleAnimation = this.handleAnimation.bind(this);
-    this.handleHover = this.handleHover.bind(this);
-    this.toggleNav = this.toggleNav.bind(this);
+    var show = renderstate.reelPlaying ? 'initial' : 'none';
 
-  }
-
-  targetElement = null;
-
-  componentDidMount(){
-    this.targetElement = document.querySelector('#navid');
-}
-
-  toggleNav(){
-
-    var option = (this.state.displayNav)? false : true;
-
-    if (this.state.displayNav === false){
-
-    disableBodyScroll(this.targetElement);
-    } else {
-      enableBodyScroll(this.targetElement);
-    }
-
-    console.log(this.targetElement);
-
-    this.setState({
-      displayNav: option,
-    })
-
+    return (   
     
-  }
+        <div className = "reel" id="reelid">
 
-  handleAnimation(){
-    this.setState({
-      titleAnimation: true,
-    })
-
-    console.log("test")
-  }
-
-  handleHover(){
-
-    var linesize = (this.state.hover === "lg")? "md" : "lg";
-
-      this.setState({
-        hover: linesize,
-      })
-  }
-
-  componentWillUnmount(){
-    clearAllBodyScrollLocks();
-  }
-
-
-  render(){
-
-    var x = window.screen.height;
-    var y = x * (16/9);
-
-    var show = (this.state.displayNav)? "none" : "initial";
-  
-  return (
-    
-    
-    
-      <div className = "reel" id="reelid">
-
-        <div className = "hamburger" onClick = {this.props.scrolling} onMouseOver = {this.handleHover} onMouseOut = {this.handleHover}>
-         
-          <Hamburger rounded distance = {this.state.hover} toggled = {this.state.displayNav} toggle = {this.toggleNav} />
-        </div>
-    {(this.state.titleAnimation)? <h1 className = "title" style = {{display: show}}>MICHAEL KELLEY <span style = {{verticalAlign: ".09em"}}>| </span><i>filmmaker</i></h1> : null}
-          <ReactPlayer height = {x} width= {y} onStart = {this.handleAnimation} className = "fullscreen-video" playing = {this.props.constant} muted loop url='https://vimeo.com/301566893' />
-          <Nav navstate = {this.state.displayNav} opennav = {this.toggleNav} />
+          <div className = "hamburger" onClick = {() => setrenderstate(Object.assign({}, renderstate, {displayNav: toggler, reelPlaying: !toggler }))} onMouseOver = {() => setrenderstate(Object.assign({}, renderstate, {hover: 'lg'}))} onMouseOut = {() => setrenderstate(Object.assign({}, renderstate, {hover: 'md'}))}>
+          
+          <Hamburger rounded distance = {renderstate.hover} toggled = {renderstate.displayNav}   />
+          </div>
+          
+            <h1 className = "title" style = {{ display: show }}>MICHAEL KELLEY <span className = 'lifted-line'> |</span> filmmaker</h1>    
+            
+          <video autoPlay muted loop playsInline onPlay = {() => setrenderstate(Object.assign({},renderstate, {reelPlaying: true}))} className = "fullscreen-video" src = {reelvideo}  />
+          <Nav renderstate = {renderstate}  setrenderState = {setrenderstate} />
           <Link smooth to="#workid" className = "down-arrow">
-          {(this.state.displayNav === false)? <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg> : null}
-          </Link>
-      
-      
-          {(this.state.displayNav === false)? <div className = "play-button" onClick = {this.props.toggleplay}><svg version="1.1" id="Layer_1" width="40" height="68.40690978886755" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 52 60"><path fill="white" d="M0,0v60l52-30L0,0z M3,5.2L46,30L3,54.8V5.2z"></path><path fill="white" className="play-button-effect" d="M0,0v60l52-30L0,0z"></path></svg></div> : null}
-    
+          {(renderstate.displayNav === false)? <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg> : null}
+          </Link>        
+        
+          {(renderstate.displayNav === false)? <div className = "play-button" onClick = {() => setrenderstate(Object.assign({}, renderstate, {playFullReel: true}))}><svg version="1.1" id="Layer_1" width="40" height="68.40690978886755" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 52 60"><path fill="white" d="M0,0v60l52-30L0,0z M3,5.2L46,30L3,54.8V5.2z"></path><path fill="white" className="play-button-effect" d="M0,0v60l52-30L0,0z"></path></svg></div> : null}
 
-
-
-    </div>
-    
+        </div>    
   );
   }
-}
 
 export default Reel;

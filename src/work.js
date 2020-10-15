@@ -1,77 +1,124 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactPlayer from 'react-player'
 
-class Work extends React.Component {
-    constructor(props){
-        super(props);
+const Work = ({ setplayerdata }) => {
 
-        this.state = {
-            hooplah: false,
-        }
+    const friendref = React.createRef();
+    const mingaref = React.createRef();
+    const paperweightref = React.createRef();
+    const mothermoonref = React.createRef();
+    const vinhref = React.createRef();
+    const jacqueref = React.createRef();
 
-        this.friendRef = React.createRef();
-        this.minga = React.createRef();
-        this.paperweight = React.createRef();
-        this.mothermoon = React.createRef();
-        this.jacque = React.createRef();
-        this.vinh = React.createRef();
-        }
-
-    componentDidUpdate(){
+    useEffect(() => {
+        friendref.current.showPreview();
+        mingaref.current.showPreview();
+        paperweightref.current.showPreview();
+        mothermoonref.current.showPreview();
+        vinhref.current.showPreview();
+        jacqueref.current.showPreview();
+    })
     
-        this.friendRef.current.showPreview();
-        this.minga.current.showPreview();
-        this.paperweight.current.showPreview();
-        this.mothermoon.current.showPreview();
-        this.jacque.current.showPreview();
-        this.vinh.current.showPreview();        
-    }
-    
-    render(){
 
         var x = ((window.screen.width < 1200)? "384px" : "640px");
         var y = ((window.screen.width < 1200)? "216px": "360px");
 
+        const friends = () => {
+            return (
+                <React.Fragment>
+                    <p>My Friends</p>
+                    <p>I came back home to Arkansas on a job once and had some time to see my good friends, Noah & Lydiah. These two are meant to be together and there's so much about life that I've learned from them both. New conversations, new perspectives, and growth. Their new home is so beautifully "them" and so I felt inspired to film these two being themselves and record a bit of music to it.</p>
+                    <p>"Friendship is born at that moment when one person says to another, 'What! You too? I thought I was the only one." - C.S. Lewis</p>
+                </React.Fragment>
+            )
+        }
+    
+        const minga = () => {
+            return (
+                <React.Fragment>
+                    <p>MINGA // SUSTAINABLE EQUALITY FOR ALL</p>
+                    <p>Client Concept Video - Cinematography by Michael Kelley</p>
+                    <p>Direction by Molly Devine</p>
+                    <p>Editor - Michael Kelley</p>
+                </React.Fragment>
+            )
+        }
+    
+        const paperweight = () => {
+            return (
+                <React.Fragment>
+                    <p>PAPERWEIGHT // FATE</p>
+                    <p>Music Video - Direction & Cinematography by Michael Kelley</p>
+                    <p>Editor - Michael Kelley</p>
+                </React.Fragment>
+            )
+        }
+    
+        const mothermoon = () => {
+            return (
+                <React.Fragment>
+                    <p>MOTHER MOON // CABG</p>
+                    <p>Music Video - Direction & Cinematography by Michael Kelley</p>
+                    <p>Editor - Michael Kelley</p>
+                </React.Fragment>
+            )
+        }
+    
+        const jacque = () => {
+            return (
+                <React.Fragment>
+                    <p>TYSON // JACQUE</p>
+                    <p>Short Documentary for Tyson Foods - Directed, Shot, & Edited by Michael Kelley</p>
+                </React.Fragment>
+            )
+        }
+    
+        const vinh = () => {
+            return (
+                <React.Fragment>
+                    <p>TYSON // VINH</p>
+                    <p>Short Documentary for Tyson Foods - Directed, Shot, & Edited by Michael Kelley</p>
+                </React.Fragment>
+            )
+        }
+
         return(
-            <div className="work-container" id="workid">
-                
-            <div className = "work">
-                <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-duration="500">
-                    <ReactPlayer url = "https://vimeo.com/339679804" ref = {this.friendRef} id={0} onReady = {this.props.friends} light height = {y} width = {x} className="work-thumbnail" />
-                    <p className = "hover-text">My Friends</p>
-                </div>
-                
-                
-                <div className="work-slots" height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
-                    <p className = "hover-text">Minga // Sustainable Equality for All</p>
-                    <ReactPlayer url="https://vimeo.com/283152904" ref={this.minga} id = {1} onReady = {this.props.minga} light height = {y} width = {x} className="work-thumbnail" />  
-                </div>
+            <div className="work-container" id="workid">                
+                <div className = "work">
 
-                <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" >
-                    <ReactPlayer url="https://vimeo.com/262309280" ref = {this.paperweight} id = {2} onReady = {this.props.paperweight} light height = {y} width = {x} className="work-thumbnail" />
-                    <p className = "hover-text">Paperweight // Fate</p>
-                </div>
+                    <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-duration="500">
+                        <ReactPlayer ref = {friendref} url = "https://vimeo.com/339679804" id={0} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/339679804", currentData: friends() })} light height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">My Friends</p>
+                    </div>                
+                    
+                    <div className="work-slots" height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
+                        <p className = "hover-text">Minga // Sustainable Equality for All</p>
+                        <ReactPlayer ref = {mingaref} url="https://vimeo.com/283152904" id = {1} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/283152904", currentData: minga() })} light height = {y} width = {x} className="work-thumbnail" />  
+                    </div>
 
-                <div className="work-slots" height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
-                    <ReactPlayer url="https://vimeo.com/263257237" ref = {this.mothermoon} id = {3} onReady = {this.props.mothermoon} light height = {y} width = {x} className="work-thumbnail" />
-                    <p className = "hover-text">Mothermoon // Cabg</p>
-                </div>
+                    <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" >
+                        <ReactPlayer ref = {paperweightref} url="https://vimeo.com/262309280" id = {2} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/262309280", currentData: paperweight()})} light height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">Paperweight // Fate</p>
+                    </div>
 
-                <div className="work-slots" height = {y} width = {x} data-aos = "fade-up">
-                    <ReactPlayer url="https://vimeo.com/263256889" ref = {this.jacque} id = {4} onReady = {this.props.jacque} light height = {y} width = {x} className="work-thumbnail" />
-                    <p className = "hover-text">Tyson // Jacque</p>
-                </div>
+                    <div className="work-slots" height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
+                        <ReactPlayer ref = {mothermoonref} url="https://vimeo.com/263257237" id = {3} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/263257237", currentData: mothermoon()})} light height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">Mothermoon // Cabg</p>
+                    </div>
 
-                <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
-                    <ReactPlayer url="https://vimeo.com/263257106" ref = {this.vinh} id = {5} onReady = {this.props.vinh} light height = {y} width = {x} className="work-thumbnail" />
-                    <p className = "hover-text">Tyson // Vinh</p>
-                </div>
-                
-                </div>
-                
+                    <div className="work-slots" height = {y} width = {x} data-aos = "fade-up">
+                        <ReactPlayer ref = {jacqueref} url="https://vimeo.com/263256889" id = {4} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/263256889", currentData: jacque() })} light height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">Tyson // Jacque</p>
+                    </div>
+
+                    <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
+                        <ReactPlayer ref = {vinhref} url="https://vimeo.com/263257106" id = {5} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/263257106", currentData: vinh() })} light height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">Tyson // Vinh</p>
+                    </div>
+                    
+                </div>                    
             </div>
-        )
-    }
+        )    
 };
 
 export default Work;

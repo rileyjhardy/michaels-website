@@ -10,6 +10,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: "minion-pro", Times, serif;
+  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -18,6 +19,8 @@ h2 {
   color: white;
   font-size: 40px;
 }
+
+
 
 a {
   color: inherit;
@@ -58,12 +61,17 @@ h3 {
   z-index: 1;
 }
 
+.lifted-line {
+  vertical-align: 0.07em;
+}
+
 .fullscreen-video {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
   z-index: 0;
+  
 }
 
 .reel {
@@ -91,7 +99,7 @@ h3 {
   position: absolute;
   stroke: white;
   left: 49.8%;
-  bottom: 1.5%;
+  bottom: 80px;
   transform: translate(-50%,-2%);
 }
 
@@ -359,11 +367,11 @@ h3 {
 .action-links {
   display: flex;
   justify-content: space-between;
-  width: 450px;
+  width: 300px;
 }
 
 .contact-link {
-  width: 70px;
+  width: 50px;
   text-align: center;
   padding: 10px;
   color:white;
@@ -376,7 +384,7 @@ h3 {
 .contact-us {
   @extend .contact-link;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 17px;
   color: white;
   border-color: white;
   margin: 10px auto 40px auto !important;
@@ -417,6 +425,11 @@ h3 {
   z-index: 5;
 }
 
+.italic {
+  font-family: "minion-pro", Times, serif;
+  font-style: italic;
+}
+
 .secondary-michael {
   justify-self: right;
   margin: 30px;
@@ -450,6 +463,75 @@ h3 {
 
 .up-arrow:hover {
   stroke: grey;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 16px;
+}
+
+.gear {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 20;
+ 
+}
+
+.gear-background {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;  
+}
+
+.background-mask {
+  backdrop-filter: blur(3px);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation-name: gear-content;
+  animation-duration: 500ms;
+  animation-delay: 700ms;
+  animation-fill-mode: both;
+  
+  
+}
+
+.gear-content {
+  position: absolute;
+  width: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  animation-name: gear-content;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+  animation-delay: 700ms;
+}
+
+.image-visible {
+  opacity: 1;
+}
+
+.image-hidden {
+  opacity: 0;
+}
+
+.smooth-image {
+  transition: opacity 500ms;
+}
+
+@keyframes gear-content {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -497,6 +579,14 @@ h3 {
     margin: 0px auto;
   }
 
+  ul {
+    font-size: 12.5px;
+  }
+
+  .gear-content {
+    width: 350px;
+  }
+
   .secondary-michael {
     margin: 0px auto;
   }
@@ -531,7 +621,7 @@ h3 {
     justify-content: space-between;
     color: white;
     font-size: 30px;
-    width: 375px;
+    width: 250px;
     margin: 0px auto;
   }
   .action-links {
