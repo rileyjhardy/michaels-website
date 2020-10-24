@@ -1,15 +1,24 @@
-import React, { useEffect } from 'react';
-import {Fade} from "@material-ui/core";
+import React, { useEffect, useState } from 'react';
+import { Fade } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
-const Contact = ({ renderstate , setrenderstate }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faImdb, faInstagram, faLinkedin, faVimeo } from '@fortawesome/free-brands-svg-icons'
 
-   
 
-    return (
-        <Fade in = {renderstate.displayContact} timeout = {500} mountOnEnter unmountOnExit>
-            <div className = "contact-whole" id = '#contactid'>
+const Contact = ({ renderstate , setrenderstate }) => {    
+
+    useEffect(() => {
+        disableBodyScroll(document.querySelector('#contactid'));
+    },[])
+
+    useEffect(() => () => {
+        enableBodyScroll(document.querySelector('#contactid'))
+    },[])
+
+    return (        
+            <div className = "contact-whole fade-on-load" id = 'contactid' >
                     <div className = "close-menu-black" onClick = {() => setrenderstate(Object.assign({}, renderstate, {displayContact: false}))}>                            
                         <CloseIcon />
                     </div>
@@ -26,17 +35,19 @@ const Contact = ({ renderstate , setrenderstate }) => {
                             </div>
                             
                         </div>
-                        <div className = "icons" id="iconsid">
-                            <a href="https://www.facebook.com/michael.kelley.9028194" target="_blank" rel="noopener noreferrer" ><i className="fab fa-facebook about-icons"></i></a>
-                            <a href="https://www.instagram.com/kelley_michael" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram about-icons"></i></a>
-                            <a href="https://www.linkedin.com/in/michael-kelley-b64b70b7/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin about-icons"></i></a>
-                            <a href="https://vimeo.com/michaelkelley" target="_blank" rel="noopener noreferrer"><i className="fab fa-vimeo-v about-icons"></i></a>
-                            <a href="https://www.imdb.com/name/nm6512040/?ref_=fn_nm_nm_155" target="_blank" rel="noopener noreferrer"><i className="fab fa-imdb about-icons"></i></a>
+                        <div className = "icons" id="iconsid" >
+                            <a href="https://www.facebook.com/michael.kelley.9028194" target="_blank" rel="noopener noreferrer" ><FontAwesomeIcon icon={faFacebook} className = 'about-icons' /></a>
+                            <a href="https://www.instagram.com/kelley_michael" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} className = 'about-icons' /></a>
+                            <a href="https://www.linkedin.com/in/michael-kelley-b64b70b7/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} className = 'about-icons' /></a>
+                            <a href="https://vimeo.com/michaelkelley" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faVimeo}className = 'about-icons' /></a>
+                            <a href="https://www.imdb.com/name/nm6512040/?ref_=fn_nm_nm_155" target="_blank" rel="noopener noreferrer"  ><FontAwesomeIcon icon = {faImdb} className = 'about-icons' /></a>
+                            
                         </div>
                 
             </div>
         </div>
-     </Fade>
+      
+     
     )
 }
 

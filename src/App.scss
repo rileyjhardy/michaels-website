@@ -1,26 +1,19 @@
 
-html {
-  
+html {  
   padding: 0;
   margin: 0;
   background-color: black;
-  
 }
 
 body {
   overflow-x: hidden;
   font-family: "minion-pro", Times, serif;
-  -webkit-overflow-scrolling: touch;
 }
-
-
 
 h2 {
   color: white;
   font-size: 40px;
 }
-
-
 
 a {
   color: inherit;
@@ -38,14 +31,13 @@ h3 {
   grid-template-rows: 100vh auto auto auto auto auto auto;
   grid-template-columns: 100vw;
   color: white;
-  background-color: black;
-  
+  background-color: black;  
 }
 
 .title {
   animation-name: title;
   animation-duration: .5s;
-  animation-delay: .2s;
+  animation-delay: .5s;
   animation-timing-function: ease-out;
   animation-fill-mode: both;
   font-weight: normal;
@@ -71,7 +63,8 @@ h3 {
   top: 50%;
   transform: translate(-50%,-50%);
   z-index: 0;
-  
+  min-height: 100vh;
+  min-width: 100vw;  
 }
 
 .reel {
@@ -95,12 +88,26 @@ h3 {
   }
 }
 
+@keyframes play-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .down-arrow {
   position: absolute;
   stroke: white;
   left: 49.8%;
   bottom: 80px;
   transform: translate(-50%,-2%);
+  animation-name: play-fade;
+  animation-delay: .5s;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
 }
 
 .hamburger {
@@ -118,6 +125,11 @@ h3 {
   transform: translate(-50%,-20%);
   cursor: pointer;
   font-size: 50px;
+  animation-name: play-fade;
+  animation-duration: .5s;
+  animation-delay: .5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
 }
 
 .play-button-effect {
@@ -250,16 +262,17 @@ h3 {
   justify-content: center;
   align-items: center;
   background-color:black;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 3;
+  z-index: 100;
 }
 
 .hover-text {
   position: absolute;
   z-index: 2;
-  color: white;
-  
+  color: white;  
   font-size: 25px;
   font-weight: bolder;
   padding-bottom: 40px;
@@ -319,6 +332,7 @@ h3 {
 
 .work-player-vid {
   max-width: 900px;
+  max-height: 600px;
 }
 
 .about {
@@ -391,13 +405,11 @@ h3 {
 }
 
 .contact-link:hover {
-  background-color: white;
-  
+  background-color: white;  
   color: black;
 }
 
 .contact-container {
-
   align-items: center;
   height: 300px;
   width: 1000px;
@@ -450,8 +462,7 @@ h3 {
   margin: auto;
 }
 
-.up-arrow {
-  
+.up-arrow {  
   margin: auto;
   bottom: 2px;
   padding-bottom: 40px;
@@ -475,8 +486,7 @@ ul {
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 20;
- 
+  z-index: 20; 
 }
 
 .gear-background {
@@ -494,9 +504,7 @@ ul {
   animation-name: gear-content;
   animation-duration: 500ms;
   animation-delay: 700ms;
-  animation-fill-mode: both;
-  
-  
+  animation-fill-mode: both;  
 }
 
 .gear-content {
@@ -521,6 +529,22 @@ ul {
 
 .smooth-image {
   transition: opacity 500ms;
+}
+
+.fade-on-load {
+  animation-name: fade;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+  
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes gear-content {
@@ -550,13 +574,10 @@ ul {
   }
   .hover-text {
     font-size: 20px;
-  }
-  
-  
+  }  
 }
 
 @media (max-width: 1300px){
-
   .work{
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr;
@@ -592,8 +613,7 @@ ul {
   }
   .contact {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
     justify-content: space-between;
     padding: 0px;
     margin: 0px auto;
@@ -601,8 +621,7 @@ ul {
     width: 100vw;
   }
   
-  .contact-link {
-  
+  .contact-link {  
     width: 70px;
     text-align: center;
     padding: 10px 0px;
@@ -645,6 +664,7 @@ ul {
   
   .title {
     font-size: 20px;
+    transform: translate(-50%, -200%);
   }
   .work-player-content {
     

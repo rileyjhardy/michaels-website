@@ -25,60 +25,60 @@ const Work = ({ setplayerdata }) => {
 
         const friends = () => {
             return (
-                <React.Fragment>
+                <>
                     <p>My Friends</p>
                     <p>I came back home to Arkansas on a job once and had some time to see my good friends, Noah & Lydiah. These two are meant to be together and there's so much about life that I've learned from them both. New conversations, new perspectives, and growth. Their new home is so beautifully "them" and so I felt inspired to film these two being themselves and record a bit of music to it.</p>
                     <p>"Friendship is born at that moment when one person says to another, 'What! You too? I thought I was the only one." - C.S. Lewis</p>
-                </React.Fragment>
+                </>
             )
         }
     
         const minga = () => {
             return (
-                <React.Fragment>
+                <>
                     <p>MINGA // SUSTAINABLE EQUALITY FOR ALL</p>
                     <p>Client Concept Video - Cinematography by Michael Kelley</p>
                     <p>Direction by Molly Devine</p>
                     <p>Editor - Michael Kelley</p>
-                </React.Fragment>
+                </>
             )
         }
     
         const paperweight = () => {
             return (
-                <React.Fragment>
+                <>
                     <p>PAPERWEIGHT // FATE</p>
                     <p>Music Video - Direction & Cinematography by Michael Kelley</p>
                     <p>Editor - Michael Kelley</p>
-                </React.Fragment>
+                </>
             )
         }
     
         const mothermoon = () => {
             return (
-                <React.Fragment>
+                <>
                     <p>MOTHER MOON // CABG</p>
                     <p>Music Video - Direction & Cinematography by Michael Kelley</p>
                     <p>Editor - Michael Kelley</p>
-                </React.Fragment>
+                </>
             )
         }
     
         const jacque = () => {
             return (
-                <React.Fragment>
+                <>
                     <p>TYSON // JACQUE</p>
                     <p>Short Documentary for Tyson Foods - Directed, Shot, & Edited by Michael Kelley</p>
-                </React.Fragment>
+                </>
             )
         }
     
         const vinh = () => {
             return (
-                <React.Fragment>
+                <>
                     <p>TYSON // VINH</p>
                     <p>Short Documentary for Tyson Foods - Directed, Shot, & Edited by Michael Kelley</p>
-                </React.Fragment>
+                </>
             )
         }
 

@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Fade } from '@material-ui/core';
+import React, { useState } from 'react';
+
 import CloseIcon from '@material-ui/icons/Close';
 import croppedgear from './media/croppedgear.jpg'
 
 const Gear = ({ renderstate , setrenderstate }) => {  
     
-    const [ imageLoaded , setImageLoaded] = useState(false);
+    const [ imageLoaded , setImageLoaded] = useState(false);   
     
-    return (
-
-        
+    return (        
             <div className = {`gear smooth-image image-${imageLoaded ? "visible" : "hidden"}`} id = '#gearid'>
                <img className = {imageLoaded ? 'gear-background' : ''} src = {croppedgear} onLoad = {() => setImageLoaded(true)} />
                <div className = {imageLoaded ? 'background-mask' : ""} ></div>
-               <div className = {imageLoaded ? 'gear-content' : ''}  >            
+               <div className = {imageLoaded ? 'gear-content' : ''} >            
                <ul>
                     <li>Blackmagic URSA Mini Pro G2/Viewfinder with Gold Mount</li> 
                     <li>Shape Shoulder Rig/Handles</li> 
