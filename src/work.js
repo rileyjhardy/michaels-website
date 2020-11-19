@@ -18,11 +18,22 @@ const Work = ({ setplayerdata }) => {
         vinhref.current.showPreview();
         jacqueref.current.showPreview();
     })
-    
 
-        var x = ((window.screen.width < 1200)? "384px" : "640px");
-        var y = ((window.screen.width < 1200)? "216px": "360px");
+        var x;
+        var y;
 
+        if (window.screen.width > 1200 ){
+            x = '640px';
+            y = '360px';
+        } else if (window.screen.width > 350 ){
+            x = '384px';
+            y = '216px';
+        } else {
+            x = '256px';
+            y = '144px';
+        }
+
+        
         const friends = () => {
             return (
                 <>

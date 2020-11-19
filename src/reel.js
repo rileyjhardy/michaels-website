@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import Nav from './nav';
 import reelvideo from './media/reelvideo.mp4';
+import reelvideosmall from './media/reelvideo-small.mp4';
 import {Cross as Hamburger} from 'hamburger-react';
 import {HashLink as Link} from 'react-router-hash-link';
 import './App.scss';
+import { LocalAtmRounded } from '@material-ui/icons';
+
+
 
 const Reel = ({ renderstate , setrenderstate }) => {  
 
     var toggler = (renderstate.displayNav)? false : true;
 
-    const [ loadedVideo , setLoadedVideo ] = useState('');
+    const [ loadedVideo , setLoadedVideo ] = useState({normal: '', small: ''});
 
-    useEffect(() => {
-      setTimeout(() =>  setLoadedVideo(reelvideo), 500)
-    },[])
+    const setVideoSize = function(){
+
+      if (window.screen.width < 800){
+          setLoadedVideo(reelvideosmall);
+      } else {
+          setLoadedVideo(reelvideo);
+      }
+    }   
+
+    window.onload = () => setVideoSize();
 
     return (   
     
@@ -24,9 +35,10 @@ const Reel = ({ renderstate , setrenderstate }) => {
           <Hamburger rounded distance = {renderstate.hover} toggled = {renderstate.displayNav}   />
           </div>
           
-            <h1 className = "title" style = {{ display: renderstate.reelPlaying ? 'initial' : 'none' }}>MICHAEL KELLEY <span className = 'lifted-line'> |</span> <i>filmmaker</i></h1>    
+            <h1 className = {`title minion-italic ${renderstate.reelPlaying ? '' : 'title-hidden'}`}><span className = 'minion-regular'>MICHAEL KELLEY</span> <span className = 'lifted-line minion-regular'> |</span> <span >filmmaker</span></h1>    
             
-          <video autoPlay muted loop playsInline onPlay = {() => setrenderstate(Object.assign({},renderstate, {reelPlaying: true}))} className = "fullscreen-video" src = {loadedVideo}  />
+          <video autoPlay muted loop playsInline onPlay = {() => setrenderstate(Object.assign({},renderstate, {reelPlaying: true}))} className = "fullscreen-video" src = {loadedVideo} />
+          
           <Nav renderstate = {renderstate}  setrenderState = {setrenderstate} />
 
            

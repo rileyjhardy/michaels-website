@@ -1,4 +1,17 @@
 
+
+.minion-italic {
+font-family: minion-pro, serif;
+font-weight: 400;
+font-style: italic;
+}
+
+.minion-regular {
+font-family: minion-pro, serif;
+font-weight: 400;
+font-style: normal;
+}
+
 html {  
   padding: 0;
   margin: 0;
@@ -7,7 +20,7 @@ html {
 
 body {
   overflow-x: hidden;
-  font-family: "minion-pro", Times, serif;
+  font-family: "minion-pro", serif;
 }
 
 h2 {
@@ -35,11 +48,7 @@ h3 {
 }
 
 .title {
-  animation-name: title;
-  animation-duration: .5s;
-  animation-delay: .5s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
+  
   font-weight: normal;
   color: white;
   position: absolute;
@@ -51,6 +60,16 @@ h3 {
   text-align: center;
   line-height: 20px;
   z-index: 1;
+  opacity: 1;
+  top: 40%;
+  left: 50%;
+  transition: all .5s;
+}
+
+.title-hidden {
+  opacity: 0;
+  top: 42%;
+  left: 50%;
 }
 
 .lifted-line {
@@ -161,6 +180,8 @@ h3 {
   justify-content: center;
   align-items: center;
   z-index: 1;
+  
+
 }
 
 .nav-link {
@@ -181,6 +202,9 @@ h3 {
   justify-content: center;
   align-items: center;
   min-height: 400px;
+  font-family: minion-pro, serif;
+  font-weight: 400;
+  
 }
 
 .quote-content {
@@ -231,6 +255,9 @@ h3 {
   margin: auto;
   column-gap: 20px;
   row-gap: 20px;
+  font-family: minion-pro, serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .divider {
@@ -320,6 +347,35 @@ h3 {
   width: 100%;
   height: 100%;
   z-index: 10;
+  font-family: minion-pro, serif;
+    
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fade-out 500ms both;
+}
+
+.fade-in {
+  animation: fade-in 500ms both
+  ;
 }
 
 .work-player-content {
@@ -347,6 +403,7 @@ h3 {
   max-width: 500px;
   margin: auto;
   padding: 100px 0px 0px 0px;
+  
 }
 
 .icons {
@@ -402,6 +459,7 @@ h3 {
   color: white;
   border-color: white;
   margin: 10px auto 40px auto !important;
+  
 }
 
 .contact-link:hover {
@@ -421,6 +479,7 @@ h3 {
   justify-content: space-around;
   padding: 0px 30px;
   width: auto;
+  
 }
 
 .contact-whole {
@@ -435,11 +494,8 @@ h3 {
   backdrop-filter: blur(5px);
   color: white;
   z-index: 5;
-}
+  
 
-.italic {
-  font-family: "minion-pro", Times, serif;
-  font-style: italic;
 }
 
 .secondary-michael {
@@ -486,7 +542,9 @@ ul {
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 20; 
+  z-index: 20;
+  
+
 }
 
 .gear-background {
@@ -531,21 +589,6 @@ ul {
   transition: opacity 500ms;
 }
 
-.fade-on-load {
-  animation-name: fade;
-  animation-duration: 500ms;
-  animation-fill-mode: both;
-  
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 @keyframes gear-content {
 
@@ -600,13 +643,9 @@ ul {
     margin: 0px auto;
   }
 
-  ul {
-    font-size: 12.5px;
-  }
+  
 
-  .gear-content {
-    width: 350px;
-  }
+  
 
   .secondary-michael {
     margin: 0px auto;
@@ -655,12 +694,23 @@ ul {
 
 @media (max-width : 768px){
   .nav-link {
-    font-size: 50px;
-  }
-  .icons-nav {
     font-size: 30px;
   }
+  .icons-nav {
+    font-size: 25px;
+  }
   
+  .hover-text {
+    font-size: 15px;
+  }
+
+  .gear-content {
+    width: 350px;
+  }
+
+  ul {
+    font-size: 12.5px;
+  }
   
   .title {
     font-size: 20px;
@@ -675,5 +725,25 @@ ul {
   }
   .quote {
     min-height: 250px;
+  }
+  .action-links {
+    max-width: 250px;
+  }
+  .icons {
+    width: 200px;
+  }
+}
+
+@media (max-width: 500px){
+  ul {
+    font-size: 10px;
+  }
+  .quote-content {
+    font-size: 15px;
+  }
+
+  .work-player-content {
+    font-size: 12px;
+    transform: translate(0, -160px)
   }
 }

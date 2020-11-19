@@ -7,7 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faImdb, faInstagram, faLinkedin, faVimeo } from '@fortawesome/free-brands-svg-icons'
 
 
-const Contact = ({ renderstate , setrenderstate }) => {    
+const Contact = ({ renderstate , setrenderstate }) => {
+    
+    const [ exiting , setExiting ] = useState(false)
 
     useEffect(() => {
         disableBodyScroll(document.querySelector('#contactid'));
@@ -17,9 +19,13 @@ const Contact = ({ renderstate , setrenderstate }) => {
         enableBodyScroll(document.querySelector('#contactid'))
     },[])
 
+    const delayClose = () => {
+        setExiting(true);
+        setTimeout(() => setrenderstate(Object.assign({}, renderstate, {displayContact: false})), 500)
+    }
     return (        
-            <div className = "contact-whole fade-on-load" id = 'contactid' >
-                    <div className = "close-menu-black" onClick = {() => setrenderstate(Object.assign({}, renderstate, {displayContact: false}))}>                            
+            <div className = {`contact-whole ${ exiting ? 'fade-out' : 'fade-in'}`}  id = 'contactid' >
+                    <div className = "close-menu-black" onClick = {() => delayClose()}>                            
                         <CloseIcon />
                     </div>
                     <div className = "contact">

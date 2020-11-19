@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 
 import CloseIcon from '@material-ui/icons/Close';
-import croppedgear from './media/croppedgear.jpg'
+import testgear from './media/testgear.jpg';
+import testgearsmall from './media/testgearsmall.jpg';
 
 const Gear = ({ renderstate , setrenderstate }) => {  
     
-    const [ imageLoaded , setImageLoaded] = useState(false);   
+    const [ imageLoaded , setImageLoaded] = useState(false); 
+    
+    const delayClose = () => {
+        setImageLoaded(false);
+        setTimeout(() => setrenderstate(Object.assign({}, renderstate, {displayGear: false})), 500)
+    }
+
+    var image = window.screen.width < 1200 ? testgearsmall : testgear;
     
     return (        
             <div className = {`gear smooth-image image-${imageLoaded ? "visible" : "hidden"}`} id = '#gearid'>
-               <img className = {imageLoaded ? 'gear-background' : ''} src = {croppedgear} onLoad = {() => setImageLoaded(true)} />
-               <div className = {imageLoaded ? 'background-mask' : ""} ></div>
-               <div className = {imageLoaded ? 'gear-content' : ''} >            
+               <img className = 'gear-background' src = {image} onLoad = {() => setImageLoaded(true)} />
+               <div className = 'background-mask' ></div>
+               <div className ='gear-content' >            
                <ul>
                     <li>Blackmagic URSA Mini Pro G2/Viewfinder with Gold Mount</li> 
                     <li>Shape Shoulder Rig/Handles</li> 
@@ -45,9 +53,8 @@ const Gear = ({ renderstate , setrenderstate }) => {
                     <li>Mags & Accessories</li>
                 </ul>
                 </div>            
-                <CloseIcon className = 'close-menu' onClick = {() => setrenderstate(Object.assign({}, renderstate, {displayGear: false}))} / >
-             </div>
-        
+                <CloseIcon className = 'close-menu' onClick = {() => delayClose()} / >
+             </div>        
     )
 };
 
