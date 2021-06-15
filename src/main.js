@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Reel from './reel';
 import FullReel from './fullreel';
 import About from './about';
@@ -8,7 +8,6 @@ import Work from './work';
 import IsolatedPlayer from './IsolatedPlayer';
 import Quote from './quote';
 import Gear from './gear';
-import {Slide} from '@material-ui/core'
 import {HashLink as Link} from 'react-router-hash-link';
 import {
     BrowserRouter as Router

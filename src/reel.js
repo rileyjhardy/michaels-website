@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Nav from './nav';
 import reelvideo from './media/reelvideo.mp4';
 import reelvideosmall from './media/reelvideo-small.mp4';
 import {Cross as Hamburger} from 'hamburger-react';
 import {HashLink as Link} from 'react-router-hash-link';
 import './App.scss';
-import { LocalAtmRounded } from '@material-ui/icons';
 
 
 

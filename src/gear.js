@@ -17,7 +17,7 @@ const Gear = ({ renderstate , setrenderstate }) => {
     
     return (        
             <div className = {`gear smooth-image image-${imageLoaded ? "visible" : "hidden"}`} id = '#gearid'>
-               <img className = 'gear-background' src = {image} onLoad = {() => setImageLoaded(true)} />
+               <img className = 'gear-background' alt = 'tripod' src = {image} onLoad = {() => setImageLoaded(true)} />
                <div className = 'background-mask' ></div>
                <div className ='gear-content' >            
                <ul>

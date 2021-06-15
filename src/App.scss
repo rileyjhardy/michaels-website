@@ -313,6 +313,12 @@ h3 {
   animation-fill-mode: none;
 }
 
+// react-player__shadow was creating a weird drop shadow for the playbutton it normally adds. Since I'm not using it, I had to get rid of the drop shadow.
+
+.react-player__shadow {
+  background: none !important;
+}
+
 .work-thumbnail:hover {
   opacity: .5;
 }
@@ -421,7 +427,7 @@ h3 {
   justify-content: space-evenly;
   color:white;
   font-size: 25px;
-  width: 200px;
+  width: 250px;
   transition: color .2s;
   padding-top: 20px;
 }
@@ -505,9 +511,32 @@ h3 {
 
 .about-icons {
   transition: color .2s;
+  color: white;
 }
 
 .about-icons:hover {
+  color: grey;
+}
+
+.sharefile {
+  cursor: pointer;
+  margin-top: 7px;
+  height: 26.25px;
+  width: 50px;
+  top: 5px;
+  color: black !important;
+}
+
+.sharefile-nav {
+  cursor: pointer;
+  margin-top: 5px;
+  height:24px;
+  width: 50px;
+  top: 5px;
+  color: black i !important;
+}
+
+.sharefile:hover {
   color: grey;
 }
 
@@ -641,11 +670,7 @@ ul {
     width: 50%;
     height: 2px;
     margin: 0px auto;
-  }
-
-  
-
-  
+  } 
 
   .secondary-michael {
     margin: 0px auto;
@@ -730,7 +755,7 @@ ul {
     max-width: 250px;
   }
   .icons {
-    width: 200px;
+    width: 250px;
   }
 }
 

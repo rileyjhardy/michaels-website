@@ -7,16 +7,16 @@ const Work = ({ setplayerdata }) => {
     const mingaref = React.createRef();
     const paperweightref = React.createRef();
     const mothermoonref = React.createRef();
-    const vinhref = React.createRef();
-    const jacqueref = React.createRef();
+    const stoneref = React.createRef();
+    const withref = React.createRef();
 
     useEffect(() => {
         friendref.current.showPreview();
         mingaref.current.showPreview();
         paperweightref.current.showPreview();
         mothermoonref.current.showPreview();
-        vinhref.current.showPreview();
-        jacqueref.current.showPreview();
+        stoneref.current.showPreview();
+        withref.current.showPreview();
     })
 
         var x;
@@ -75,30 +75,52 @@ const Work = ({ setplayerdata }) => {
             )
         }
     
-        const jacque = () => {
+        const stone = () => {
             return (
                 <>
-                    <p>TYSON // JACQUE</p>
-                    <p>Short Documentary for Tyson Foods - Directed, Shot, & Edited by Michael Kelley</p>
+                    <p>STONE // A SHORT DOCUMENTARY</p> 
+
+                    <p>Documentary about my friend Nathanael Stone, his business, and life.</p> 
+
+                    <p>Direction & Editing - Michael Kelley</p>
+
+                    <p>Cinematography - Justin Howe</p>
+
+                    <p>Producer - Chelsea Burbank</p>
+                    
                 </>
             )
         }
     
-        const vinh = () => {
+        const withyou = () => {
             return (
                 <>
-                    <p>TYSON // VINH</p>
-                    <p>Short Documentary for Tyson Foods - Directed, Shot, & Edited by Michael Kelley</p>
+                                      
+                    <p>WITH YOU // SHORT FILM</p>
+
+                    <p>Direction, Cinematography, & Editing - Michael Kelley</p>
+
+                    <p>Starting my pastor Scott Johnson and his son.</p>
                 </>
             )
         }
 
         return(
             <div className="work-container" id="workid">                
-                <div className = "work">
+                <div className = "work">               
+
+                    <div className="work-slots" height = {y} width = {x} data-aos = "fade-up">
+                        <ReactPlayer ref = {withref} url="https://vimeo.com/453127563" id = {4} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/453127563", currentData: stone() })} light = "https://i.vimeocdn.com/video/1045113741_640.jpg" height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">Stone // A Short Documentary</p>
+                    </div>
+
+                    <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
+                        <ReactPlayer ref = {stoneref} url="https://vimeo.com/482496512" id = {5} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/482496512", currentData: withyou() })} light height = {y} width = {x} className="work-thumbnail" />
+                        <p className = "hover-text">With You // Short Film</p>
+                    </div>
 
                     <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-duration="500">
-                        <ReactPlayer ref = {friendref} url = "https://vimeo.com/339679804" id={0} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/339679804", currentData: friends() })} light height = {y} width = {x} className="work-thumbnail" />
+                        <ReactPlayer ref = {friendref} url = "https://vimeo.com/339679804" id={0} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/339679804", currentData: friends() })} light = "https://i.vimeocdn.com/video/977092504_640.jpg" height = {y} width = {x} className="work-thumbnail" />
                         <p className = "hover-text">My Friends</p>
                     </div>                
                     
@@ -115,17 +137,7 @@ const Work = ({ setplayerdata }) => {
                     <div className="work-slots" height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
                         <ReactPlayer ref = {mothermoonref} url="https://vimeo.com/263257237" id = {3} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/263257237", currentData: mothermoon()})} light height = {y} width = {x} className="work-thumbnail" />
                         <p className = "hover-text">Mothermoon // Cabg</p>
-                    </div>
-
-                    <div className="work-slots" height = {y} width = {x} data-aos = "fade-up">
-                        <ReactPlayer ref = {jacqueref} url="https://vimeo.com/263256889" id = {4} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/263256889", currentData: jacque() })} light height = {y} width = {x} className="work-thumbnail" />
-                        <p className = "hover-text">Tyson // Jacque</p>
-                    </div>
-
-                    <div className="work-slots"height = {y} width = {x} data-aos = "fade-up" data-aos-delay="100">
-                        <ReactPlayer ref = {vinhref} url="https://vimeo.com/263257106" id = {5} onReady = {() => setplayerdata({currentURL: "https://vimeo.com/263257106", currentData: vinh() })} light height = {y} width = {x} className="work-thumbnail" />
-                        <p className = "hover-text">Tyson // Vinh</p>
-                    </div>
+                    </div>                   
                     
                 </div>                    
             </div>
